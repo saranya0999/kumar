@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details - Kumar Siddha Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/patient/manager/dashboard/">Kumar Siddha Hospital</a>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text me-3">Welcome, {{ request.user.get_full_name|default:request.user.username }} (Manager)</span>
+                <a class="nav-link" href="/patient/logout/">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Patient Details</h2>
+            <a href="/patient/manager/dashboard/" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Basic Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Name:</strong> {{ patient.name }}</p>
+                                <p><strong>Age:</strong> {{ patient.age }}</p>
+                                <p><strong>Gender:</strong> {{ patient.get_gender_display }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Phone:</strong> {{ patient.phone|default:"Not provided" }}</p>
+                                <p><strong>Created Date:</strong> {{ patient.created_at|date:"M d, Y" }}</p>
+                                <p><strong>Last Updated:</strong> {{ patient.updated_at|date:"M d, Y" }}</p>
+                            </div>
+                        </div>
+                        {% if patient.address %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><strong>Address:</strong> {{ patient.address }}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Visit History</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if visits %}
+                            {% for visit in visits %}
+                            <div class="border-bottom pb-3 mb-3">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h6>{{ visit.visit_date|date:"M d, Y" }}</h6>
+                                    <span class="badge bg-info">Dr. {{ visit.doctor.get_full_name|default:visit.doctor.username }}</span>
+                                </div>
+                                <p><strong>Diagnosis:</strong> {{ visit.diagnosis }}</p>
+                                {% if visit.notes %}
+                                <p><strong>Notes:</strong> {{ visit.notes }}</p>
+                                {% endif %}
+                                <p><strong>Medicine:</strong> {{ visit.medicine_prescribed }}</p>
+                                {% if visit.next_visit_date %}
+                                <p><strong>Next Visit:</strong> {{ visit.next_visit_date }}</p>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                        <p class="text-center">No visits recorded for this patient.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="/patient/manager/patient/list/" class="btn btn-outline-primary">Back to Patient List</a>
+                            <a href="/patient/manager/dashboard/" class="btn btn-outline-secondary">Back to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Total Visits:</strong> {{ visits.count }}</p>
+                        <p><strong>First Visit:</strong> {% if visits %}{{ visits.last.visit_date|date:"M d, Y" }}{% else %}No visits{% endif %}</p>
+                        <p><strong>Last Visit:</strong> {% if visits %}{{ visits.first.visit_date|date:"M d, Y" }}{% else %}No visits{% endif %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

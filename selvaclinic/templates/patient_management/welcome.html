@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumar Siddha Hospital - Ancient Healing, Modern Care</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0B5345;
+            --secondary: #7D6608;
+            --accent: #A04000;
+            --light: #F9F9F9;
+            --dark: #1B2631;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(11, 83, 69, 0.9), rgba(11, 83, 69, 0.95));
+            background-size: cover;
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            margin: 0;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Enhanced logo styling */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        /* Enhanced first logo styling */
+        .logo-item:first-child {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-item:first-child .logo-img {
+            width: 140px;
+            height: 140px;
+            border: 5px solid #f8f9fa;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 0 10px rgba(255,255,255,0.1);
+            filter: brightness(1.05) contrast(1.05);
+            animation: pulse 4s infinite ease-in-out;
+        }
+        
+        .logo-item:first-child::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+            z-index: 1;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .agathiyar-logo {
+            width: 180px;
+            height: 180px;
+        }
+        
+        .designer-credit {
+            margin-top: 2rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .logo-item:first-child {
+                order: -1;
+            }
+            
+            .logo-item:first-child .logo-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .agathiyar-logo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Rest of your CSS remains the same */
+        .about {
+            padding: 5rem 0;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--primary);
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .services {
+            background-color: #f5f5f5;
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .specializations {
+            padding: 5rem 0;
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .spec-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .legacy {
+            background-color: var(--primary);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .legacy h2 {
+            color: white;
+        }
+        
+        .legacy-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .legacy-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .legacy-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--secondary);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .testimonials {
+            padding: 5rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        .contact {
+            background-color: #f5f5f5;
+            padding: 5rem 0;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+        }
+        
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        input, textarea, select {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+        }
+        
+        textarea {
+            height: 150px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Patient Management Section - Hidden by default */
+        .patient-management {
+            background: linear-gradient(135deg, #0B5345 0%, #7D6608 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            display: none; /* Hidden by default */
+        }
+        
+        .patient-management h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .management-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .management-btn {
+            background-color: white;
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            min-width: 180px;
+            font-size: 0.9rem;
+        }
+        
+        .management-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Staff Access Toggle */
+        .staff-access {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .staff-toggle {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .staff-toggle:hover {
+            background-color: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Designer Credit */
+        .designer-credit {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/918248832905?text=Hello%20Dr.%20Selvakumar,%20I%20would%20like%20to%20book%20an%20appointment" 
+           target="_blank" 
+           class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Staff Access Toggle Button -->
+    <div class="staff-access">
+        <button class="staff-toggle" onclick="toggleStaffAccess()">
+            <i class="fas fa-user-md"></i>
+        </button>
+    </div>
+
+    <!-- Hero Section with Full-Width Green Background -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Logo Container with Three Images -->
+            <div class="logo-container">
+                <div class="logo-item">
+                    <img src="/static/img/clinic.jpg" alt="Clinic Logo 1" class="logo-img" onerror="this.src='https://via.placeholder.com/140x140/0B5345/FFFFFF?text=Clinic'">
+                </div>
+                
+                <div class="logo-item">
+                    <img src="/static/img/agathiyar.png" alt="Agathiyar Logo" class="logo-img agathiyar-logo" onerror="this.src='https://via.placeholder.com/180x180/7D6608/FFFFFF?text=Agathiyar'">
+                </div>
+                
+                <div class="logo-item">
+                    <img src="/static/img/clinic2.jpg" alt="Clinic Logo 2" class="logo-img" onerror="this.src='https://via.placeholder.com/140x140/A04000/FFFFFF?text=Clinic'">
+                </div>
+            </div>
+            
+            <h1>Experience the Healing Power of Siddha Medicine</h1>
+            <p>With over 25 years of expertise in traditional Siddha treatments, Dr. Selvakumar offers holistic healing for mind, body, and spirit at affordable costs.</p>
+            
+            <!-- Doctor Image -->
+            <div class="my-4">
+                <img src="/static/img/doctor.jpg" alt="Dr. Selvakumar" class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover; border: 4px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" onerror="this.src='https://via.placeholder.com/200x200/FFFFFF/0B5345?text=Dr.+Selvakumar'">
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Contact for Appointment</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <a href="#about" class="text-white">
+                <i class="fas fa-chevron-down bounce"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Patient Management System Section - Hidden by default -->
+    <section id="staff-access" class="patient-management">
+        <div class="container">
+            <h2>Staff Access Only</h2>
+            <p>Patient Management System - Authorized Personnel Only</p>
+            
+            <div class="management-buttons">
+                <a href="/patient/login/" class="management-btn">
+                    <i class="fas fa-sign-in-alt"></i><br>
+                    Staff Login
+                </a>
+            </div>
+            
+            <div style="margin-top: 1rem; color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                <p><strong>For authorized hospital staff only</strong></p>
+                <p>• Managers: Add and manage patient records</p>
+                <p>• Doctors: View patient history and add visit notes</p>
+                <p style="margin-top: 1rem; font-style: italic;">
+                    <i class="fas fa-info-circle"></i> New staff registration handled by administrator
+                </p>
+            </div>
+
+            <button onclick="toggleStaffAccess()" class="btn btn-outline mt-3" style="background: transparent; border: 1px solid white;">
+                <i class="fas fa-times"></i> Close Access Panel
+            </button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Legacy of Healing</h2>
+                <p>Blending ancient wisdom with modern compassionate care</p>
+            </div>
+            <div class="about-container">
+                <div class="about-content">
+                    <p>At Kumar Siddha Hospital, we blend ancient wisdom with compassionate care to provide authentic, time-honored Siddha treatments in a modern healing environment.</p>
+                    <p>For over <span class="highlight">25 years</span>, Dr. Selvakumar has dedicated himself to helping patients achieve holistic wellness, addressing not just symptoms but the root cause of ailments. Our practice continues a family tradition of healing that spans generations, combining traditional knowledge with contemporary medical understanding.</p>
+                    <a href="#treatments" class="btn">Explore Our Treatments</a>
+                </div>
+                <div class="about-image">
+                    <img src="/static/img/doctor.jpg" alt="Dr. Selvakumar" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/400x400/0B5345/FFFFFF?text=Dr.+Selvakumar'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section id="treatments" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Specialized Treatments</h2>
+                <p>Comprehensive Siddha therapies for holistic healing</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-hand-holding-heart service-icon"></i>
+                    <h3>Varmam Therapy</h3>
+                    <p>An ancient touch therapy that works on vital energy points to restore balance, relieve pain, and promote natural healing.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-spa service-icon"></i>
+                    <h3>Kizhi (Herbal Poultice)</h3>
+                    <p>Therapeutic massage with herbal poultices to alleviate pain, reduce inflammation, and improve circulation.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hand service-icon"></i>
+                    <h3>Ottradam (Steam Therapy)</h3>
+                    <p>Medicated steam treatment that opens pores, eliminates toxins, and promotes deep relaxation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section class="specializations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conditions We Treat</h2>
+                <p>Effective Siddha treatments for various health conditions</p>
+            </div>
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <h3>Kidney Stones</h3>
+                    <p>Non-invasive treatment to dissolve and eliminate renal calculi without surgery.</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Gastric Issues</h3>
+                    <p>Natural healing protocols for ulcer management and digestive system restoration.</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Piles & Hemorrhoids</h3>
+                    <p>Effective treatments to reduce inflammation and promote healing without surgery.</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Infectious Diseases</h3>
+                    <p>Effective treatments for Chicken Guinea, Dengue, and post-COVID recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Section -->
+    <section class="legacy">
+        <div class="container">
+            <div class="legacy-container">
+                <div class="legacy-content">
+                    <h2>A Legacy of Healing</h2>
+                    <p>Dr. Selvakumar comes from a long lineage of Siddha practitioners. His father was a renowned traditional Siddha healer who served their community for over four decades.</p>
+                    <p>This rich family heritage has endowed Dr. Selvakumar with unique knowledge of rare herbal formulations and treatment methodologies passed down through generations.</p>
+                    <p>We are committed to providing these time-tested treatments at affordable costs, making traditional healing accessible to all sections of society.</p>
+                </div>
+                <div class="legacy-image">
+                    <img src="/static/img/herbal.jpg" alt="Agathiyar Tradition" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/300x300/7D6608/FFFFFF?text=Agathiyar+Tradition'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Success Stories</h2>
+                <p>Hear from those who have experienced our healing touch</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Dr. Selvakumar's treatment completely dissolved my kidney stones without surgery. I'm forever grateful for his expertise and affordable care."</p>
+                    <p class="testimonial-author">- Ramesh Kumar, Chennai</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"After years of suffering from sinusitis, just one course of treatment with Dr. Selvakumar brought me lasting relief when modern medicine failed."</p>
+                    <p class="testimonial-author">- Priya S, Bangalore</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Reach out to begin your healing journey</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt info-icon"></i>
+                        <div>
+                            <strong>Address:</strong><br>
+                            EPFO Office Turning,<br>
+                            STC Scheme Road,<br>
+                            Tirunelveli - 627007
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone info-icon"></i>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            <a href="tel:+918248832905" style="color: var(--primary); text-decoration: none;">
+                                +91 82488 32905
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope info-icon"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:kumarsiddhahospital@gmail.com" style="color: var(--primary); text-decoration: none;">
+                                kumarsiddhahospital@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock info-icon"></i>
+                        <div>
+                            <strong>Consultation Hours:</strong><br>
+                            Monday - Saturday: 5:00 PM - 9:00 PM<br>
+                            Sunday: Emergency Calls Only
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp info-icon" style="color: #25D366;"></i>
+                        <div>
+                            <strong>WhatsApp:</strong><br>
+                            <a href="https://wa.me/918248832905?text=Hello%20Dr.%20Selvakumar,%20I%20would%20like%20to%20book%20an%20appointment" 
+                               target="_blank" 
+                               style="color: #25D366; text-decoration: none;">
+                                Message us on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Quick Contact</h3>
+                    <p>For appointments and inquiries, please contact us directly via phone or WhatsApp during consultation hours.</p>
+                    <div class="mt-4">
+                        <a href="tel:+918248832905" class="btn" style="margin-right: 10px;">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/918248832905?text=Hello%20Dr.%20Selvakumar,%20I%20would%20like%20to%20book%20an%20appointment" 
+                           target="_blank" 
+                           class="btn" style="background-color: #25D366; border-color: #25D366;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kumar Siddha Hospital</h3>
+                    <p>Continuing a legacy of traditional healing with modern compassion.</p>
+                    <div class="designer-credit">
+                        <p><i class="fas fa-code"></i> Designed and Developed by Dr. S. Thamizh Priyan</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about" style="color: white;">About</a></p>
+                    <p><a href="#treatments" style="color: white;">Services</a></p>
+                    <p><a href="#contact" style="color: white;">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>
+                        <a href="https://wa.me/918248832905" style="color: white; margin-right: 10px;">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <i class="fab fa-facebook-f" style="margin-right: 10px; cursor: pointer;"></i>
+                        <i class="fab fa-instagram" style="cursor: pointer;"></i>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kumar Siddha Hospital. All rights reserved.</p>
+                <p>EPFO Office Turning, STC Scheme Road, Tirunelveli - 627007</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Staff Access Toggle Function
+        function toggleStaffAccess() {
+            const staffSection = document.getElementById('staff-access');
+            if (staffSection.style.display === 'block') {
+                staffSection.style.display = 'none';
+            } else {
+                staffSection.style.display = 'block';
+                staffSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Close staff access when clicking outside
+        document.addEventListener('click', function(event) {
+            const staffSection = document.getElementById('staff-access');
+            const staffToggle = document.querySelector('.staff-toggle');
+            
+            if (staffSection.style.display === 'block' && 
+                !staffSection.contains(event.target) && 
+                !staffToggle.contains(event.target)) {
+                staffSection.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
